@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import SendMessageWithContextUseCase from "../../domain/usecases/SendMessageWithContextUseCase";
 import { ChatMessageInterface } from "../../data/models/ChatMessageInterface";
+import Markdown from "markdown-to-jsx";
 
 const useCase = new SendMessageWithContextUseCase();
 
@@ -47,7 +48,8 @@ export default function ChatScreen() {
             key={idx}
             style={{ textAlign: msg.role === "user" ? "right" : "left" }}
           >
-            <b>{msg.role === "user" ? "Você" : "Gemini"}:</b> {msg.content}
+            <b>{msg.role === "user" ? "Você" : "Gemini"}:</b>
+            <Markdown>{msg.content}</Markdown>
           </div>
         ))}
         {loading && <div>Enviando...</div>}
