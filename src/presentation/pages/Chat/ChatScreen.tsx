@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
-import SendMessageWithContextUseCase from "../../domain/usecases/SendMessageWithContextUseCase";
-import { ChatMessageInterface } from "../../data/models/ChatMessageInterface";
+import SendMessageWithContextUseCase from "../../../domain/usecases/SendMessageWithContextUseCase";
+import { ChatMessageInterface } from "../../../data/models/ChatMessageInterface";
 import Markdown from "markdown-to-jsx";
 import { useLocation, useNavigate } from "react-router-dom";
+import styles from "./ChatScreen.module.css";
 
 const useCase = new SendMessageWithContextUseCase();
 
@@ -57,21 +58,11 @@ export default function ChatScreen() {
   };
 
   return (
-    <div style={{ maxWidth: 600, margin: "0 auto" }}>
+    <div className={styles.chatContainer}>
       <h2>Chat com Gemini</h2>
-      <div
-        style={{
-          minHeight: 300,
-          border: "1px solid #ccc",
-          padding: 16,
-          marginBottom: 16,
-        }}
-      >
+      <div className={styles.chatBox}>
         {messages.map((msg, idx) => (
-          <div
-            key={idx}
-            style={{ textAlign: msg.role === "user" ? "right" : "left" }}
-          >
+          <div key={idx} className={`${styles.message} ${styles[msg.role]}`}>
             <b>{msg.role === "user" ? "Você" : "Gemini"}:</b>
             <Markdown>{msg.content}</Markdown>
           </div>
@@ -83,18 +74,21 @@ export default function ChatScreen() {
         onChange={(e) => setInput(e.target.value)}
         onKeyDown={(e) => e.key === "Enter" && sendMessage()}
         placeholder="Digite sua mensagem..."
-        style={{ width: "80%", marginRight: 8 }}
         disabled={loading}
+        type="text"
       />
-      <button onClick={sendMessage} disabled={loading || !input.trim()}>
-        Enviar
-      </button>
-      <button
-        onClick={handleRestart}
-        style={{ marginLeft: 8, background: "#eee", color: "#333" }}
-      >
-        Recomeçar
-      </button>
+      <div className={styles.inputRow}>
+        <button onClick={sendMessage} disabled={loading || !input.trim()}>
+          Enviar
+        </button>
+        <button
+          onClick={handleRestart}
+          className={styles.restartButton}
+          type="button"
+        >
+          Recomeçar
+        </button>
+      </div>
     </div>
   );
 }

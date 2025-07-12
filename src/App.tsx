@@ -2,7 +2,7 @@ import React from "react";
 import WelcomeScreen from "./presentation/pages/WelcomeScreen";
 import FormWizard from "./presentation/pages/FormWizardScreen";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import ChatScreen from "./presentation/pages/ChatScreen";
+import ChatScreen from "./presentation/pages/Chat/ChatScreen";
 
 const App: React.FC = () => {
   return (

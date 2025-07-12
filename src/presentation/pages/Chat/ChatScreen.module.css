@@ -1,0 +1,142 @@
+.chatContainer {
+  max-width: 600px;
+  margin: 48px auto;
+  padding: 32px 24px;
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.07);
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+h2 {
+  color: #6c63ff;
+  margin-bottom: 8px;
+  text-align: center;
+}
+
+.chatBox {
+  min-height: 300px;
+  border: 1px solid #e0e0e0;
+  background: #fafbfc;
+  padding: 18px;
+  margin-bottom: 8px;
+  border-radius: 12px;
+  overflow-y: auto;
+  font-size: 1rem;
+  box-shadow: 0 1px 4px rgba(76, 99, 255, 0.03);
+}
+
+.message {
+  margin-bottom: 14px;
+  display: flex;
+  flex-direction: column;
+}
+
+.message.user {
+  align-items: flex-end;
+}
+
+.message.model {
+  align-items: flex-start;
+}
+
+.message b {
+  color: #6c63ff;
+  font-weight: 600;
+}
+
+.inputRow {
+  display: flex;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+input[type="text"] {
+  flex: 1;
+  padding: 10px 12px;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 1rem;
+  background: #fafbfc;
+  transition: border 0.2s;
+  color: #222;
+}
+
+input[type="text"]:focus {
+  border: 1.5px solid #6c63ff;
+  outline: none;
+}
+
+button {
+  padding: 10px 18px;
+  background: linear-gradient(90deg, #6c63ff 60%, #48c6ef 100%);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+  box-shadow: 0 2px 8px rgba(76, 99, 255, 0.08);
+}
+
+button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.restartButton {
+  background: #eee;
+  color: #333;
+  margin-left: 8px;
+}
+
+button.restartButton:hover {
+  background: #e0e0e0;
+}
+
+@media (prefers-color-scheme: dark) {
+  .chatContainer {
+    background: #181a1b;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.45);
+  }
+  h2 {
+    color: #8a7fff;
+  }
+  .chatBox {
+    min-height: 300px;
+    max-height: 350px;
+    background: #232527;
+    border: 1px solid #333;
+    padding: 18px;
+    margin-bottom: 8px;
+    border-radius: 12px;
+    overflow-y: auto;
+    font-size: 1rem;
+    box-shadow: 0 1px 4px rgba(76, 99, 255, 0.03);
+    /* Para animação suave ao rolar */
+    scroll-behavior: smooth;
+  }
+  input[type="text"] {
+    background: #232527;
+    border: 1px solid #333;
+    color: #e0e0e0;
+  }
+  input[type="text"]:focus {
+    border: 1.5px solid #8a7fff;
+  }
+  button {
+    background: linear-gradient(90deg, #8a7fff 60%, #48c6ef 100%);
+    color: #fff;
+    box-shadow: 0 2px 8px rgba(76, 99, 255, 0.18);
+  }
+  .restartButton {
+    background: #232527;
+    color: #e0e0e0;
+  }
+  button.restartButton:hover {
+    background: #333;
+  }
+}
