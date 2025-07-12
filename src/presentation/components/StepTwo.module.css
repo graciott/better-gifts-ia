@@ -1,0 +1,116 @@
+.formContainer {
+  max-width: 400px;
+  margin: 48px auto;
+  padding: 32px 28px;
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.07);
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+label {
+  font-size: 1rem;
+  color: #222;
+  font-weight: 500;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="radio"],
+input[type="checkbox"] {
+  margin-right: 8px;
+}
+
+input[type="text"],
+input[type="number"] {
+  padding: 10px 12px;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 1rem;
+  background: #fafbfc;
+  transition: border 0.2s;
+  color: #222;
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus {
+  border: 1.5px solid #6c63ff;
+  outline: none;
+}
+
+.radioGroup,
+.checkboxGroup {
+  display: flex;
+  gap: 18px;
+  margin-top: 6px;
+}
+
+input[type="checkbox"] {
+  accent-color: #6c63ff;
+}
+
+.buttonGroup {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 18px;
+}
+
+button {
+  padding: 12px 0;
+  background: linear-gradient(90deg, #6c63ff 60%, #48c6ef 100%);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+  box-shadow: 0 2px 8px rgba(76, 99, 255, 0.08);
+  width: 48%;
+}
+
+button:hover {
+  background: linear-gradient(90deg, #48c6ef 0%, #6c63ff 100%);
+}
+
+@media (prefers-color-scheme: dark) {
+  .formContainer {
+    background: #181a1b;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.45);
+  }
+
+  label {
+    color: #e0e0e0;
+  }
+
+  input[type="text"],
+  input[type="number"] {
+    background: #232527;
+    border: 1px solid #333;
+    color: #e0e0e0;
+  }
+
+  input[type="text"]:focus,
+  input[type="number"]:focus {
+    border: 1.5px solid #8a7fff;
+  }
+
+  button {
+    background: linear-gradient(90deg, #8a7fff 60%, #48c6ef 100%);
+    color: #fff;
+    box-shadow: 0 2px 8px rgba(76, 99, 255, 0.18);
+  }
+
+  button:hover {
+    background: linear-gradient(90deg, #48c6ef 0%, #8a7fff 100%);
+  }
+}
