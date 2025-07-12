@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import SendMessageWithContextUseCase from "../../domain/usecases/SendMessageWithContextUseCase";
 import { ChatMessageInterface } from "../../data/models/ChatMessageInterface";
 import Markdown from "markdown-to-jsx";

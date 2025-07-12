@@ -1,6 +1,7 @@
 import React, { useState } from "react";
-import StepOne from "./StepOne";
-import StepTwo from "./StepTwo";
+import StepOne from "../components/StepOne";
+import StepTwo from "../components/StepTwo";
+import FormResult from "../components/FormResult";
 
 const FormWizard: React.FC = () => {
   const [step, setStep] = useState(1);
@@ -27,6 +28,11 @@ const FormWizard: React.FC = () => {
           nextStep={nextStep}
           prevStep={prevStep}
         />
+      )}
+      {step > 2 && (
+        <div>
+          <FormResult formData={formData} prevStep={prevStep} />
+        </div>
       )}
     </div>
   );
