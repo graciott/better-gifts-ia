@@ -1,7 +1,8 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import SendMessageWithContextUseCase from "../../domain/usecases/SendMessageWithContextUseCase";
 import { ChatMessageInterface } from "../../data/models/ChatMessageInterface";
 import Markdown from "markdown-to-jsx";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const useCase = new SendMessageWithContextUseCase();
 
@@ -9,6 +10,25 @@ export default function ChatScreen() {
   const [messages, setMessages] = useState<ChatMessageInterface[]>([]);
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
+
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  const message = location.state?.message;
+
+  console.log("ChatScreen rendered", message);
+
+  useEffect(() => {
+    if (message) {
+      setMessages([
+        {
+          role: "model",
+          content:
+            typeof message === "string" ? message : JSON.stringify(message),
+        },
+      ]);
+    }
+  }, [message]);
 
   const sendMessage = async () => {
     if (!input.trim()) return;
@@ -30,6 +50,10 @@ export default function ChatScreen() {
       ]);
     }
     setLoading(false);
+  };
+
+  const handleRestart = () => {
+    navigate("/form-wizard");
   };
 
   return (
@@ -64,6 +88,12 @@ export default function ChatScreen() {
       />
       <button onClick={sendMessage} disabled={loading || !input.trim()}>
         Enviar
+      </button>
+      <button
+        onClick={handleRestart}
+        style={{ marginLeft: 8, background: "#eee", color: "#333" }}
+      >
+        Recomeçar
       </button>
     </div>
   );
