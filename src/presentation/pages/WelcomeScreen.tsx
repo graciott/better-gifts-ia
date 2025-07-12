@@ -1,11 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 
-interface WelcomeScreenProps {
-  onStart: () => void;
-}
-
-const WelcomeScreen: React.FC<WelcomeScreenProps> = () => {
+const WelcomeScreen: React.FC = () => {
   const navigate = useNavigate();
 
   const handleStartClick = () => {
