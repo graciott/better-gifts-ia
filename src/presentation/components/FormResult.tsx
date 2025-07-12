@@ -12,7 +12,6 @@ const useCase = new SendMessageWithContextUseCase();
 
 const FormResult: React.FC<FormResultProps> = ({ formData, prevStep }) => {
   const navigate = useNavigate();
-  console.log("FormResult rendered", formData);
 
   const sendMessage = async () => {
     try {

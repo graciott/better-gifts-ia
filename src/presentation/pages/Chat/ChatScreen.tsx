@@ -17,8 +17,6 @@ export default function ChatScreen() {
 
   const message = location.state?.message;
 
-  console.log("ChatScreen rendered", message);
-
   useEffect(() => {
     if (message) {
       setMessages([
