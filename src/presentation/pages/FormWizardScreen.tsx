@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import StepOne from "../components/Chat/StepOne";
-import StepTwo from "../components/Chat/StepTwo";
-import FormResult from "../components/Chat/FormResult";
+import StepOne from "../components/FormWizard/StepOne";
+import StepTwo from "../components/FormWizard/StepTwo";
+import FormResult from "../components/FormWizard/FormResult";
 
 const FormWizard: React.FC = () => {
   const [step, setStep] = useState(1);
