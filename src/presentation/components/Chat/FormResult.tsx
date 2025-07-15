@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./FormResult.module.css";
-import SendMessageWithContextUseCase from "../../domain/usecases/SendMessageWithContextUseCase";
+import SendMessageWithContextUseCase from "../../../domain/usecases/SendMessageWithContextUseCase";
 import { useNavigate } from "react-router-dom";
 
 interface FormResultProps {
