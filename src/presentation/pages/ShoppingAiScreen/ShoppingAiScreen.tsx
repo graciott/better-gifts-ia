@@ -1,4 +1,5 @@
 import ProductsSlider from "../../components/ProductsSlider/ProductsSlider";
+import ChatScreen from "../Chat/ChatScreen";
 import styles from "./ShoppingAiScreen.module.css";
 
 const ShoppingAiScreen = () => {
@@ -65,12 +66,17 @@ const ShoppingAiScreen = () => {
   ];
 
   return (
-    <div className={styles.container}>
-      {categories.map((category) => (
-        <div className={styles.category} key={category.title}>
-          <ProductsSlider category={category} />
-        </div>
-      ))}
+    <div className={styles.mainWrapper}>
+      <div className={styles.chatSection}>
+        <ChatScreen />
+      </div>
+      <div className={styles.container}>
+        {categories.map((category) => (
+          <div className={styles.category} key={category.title}>
+            <ProductsSlider category={category} />
+          </div>
+        ))}
+      </div>
     </div>
   );
 };
