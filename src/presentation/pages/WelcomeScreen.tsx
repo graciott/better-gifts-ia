@@ -2,10 +2,10 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 
 const WelcomeScreen: React.FC = () => {
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
 
   const handleStartClick = () => {
-    // navigate("/form-wizard");
+    navigate("/form-wizard");
   };
 
   return (
