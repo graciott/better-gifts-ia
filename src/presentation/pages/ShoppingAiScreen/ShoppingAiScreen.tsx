@@ -7,9 +7,27 @@ const ShoppingAiScreen = () => {
     {
       title: "Electronics",
       products: [
+        { id: 1, title: "primeiro", image: "smartphone.jpg", price: 699 },
+        { id: 1, title: "segundo", image: "smartphone.jpg", price: 699 },
+        { id: 1, title: "terceiro", image: "smartphone.jpg", price: 699 },
         { id: 1, title: "Smartphone", image: "smartphone.jpg", price: 699 },
         { id: 1, title: "Smartphone", image: "smartphone.jpg", price: 699 },
         { id: 1, title: "Smartphone", image: "smartphone.jpg", price: 699 },
+        { id: 2, title: "Laptop", image: "laptop.jpg", price: 999 },
+        { id: 2, title: "Laptop", image: "laptop.jpg", price: 999 },
+        { id: 2, title: "Laptop", image: "laptop.jpg", price: 999 },
+        { id: 2, title: "Laptop", image: "laptop.jpg", price: 999 },
+        { id: 2, title: "Laptop", image: "laptop.jpg", price: 999 },
+        { id: 2, title: "Laptop", image: "laptop.jpg", price: 999 },
+        { id: 2, title: "Laptop", image: "laptop.jpg", price: 999 },
+      ],
+    },
+    {
+      title: "Viagens e Turismo",
+      products: [
+        { id: 1, title: "primeiro", image: "smartphone.jpg", price: 699 },
+        { id: 1, title: "segundo", image: "smartphone.jpg", price: 699 },
+        { id: 1, title: "terceiro", image: "smartphone.jpg", price: 699 },
         { id: 1, title: "Smartphone", image: "smartphone.jpg", price: 699 },
         { id: 1, title: "Smartphone", image: "smartphone.jpg", price: 699 },
         { id: 1, title: "Smartphone", image: "smartphone.jpg", price: 699 },
@@ -71,6 +89,7 @@ const ShoppingAiScreen = () => {
         <ChatScreen />
       </div>
       <div className={styles.container}>
+        <h1>Shopping AI Screen</h1>
         {categories.map((category) => (
           <div className={styles.category} key={category.title}>
             <ProductsSlider category={category} />

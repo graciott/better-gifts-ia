@@ -20,7 +20,7 @@ interface ProductsSliderProps {
 
 const ProductsSlider: React.FC<ProductsSliderProps> = ({ category }) => {
   return (
-    <div className={styles.category}>
+    <div>
       <h2 className={styles.categoryTitle}>{category.title}</h2>
       <div className={styles.container}>
         {category.products.map((product) => (

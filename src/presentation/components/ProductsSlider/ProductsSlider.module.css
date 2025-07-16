@@ -14,13 +14,6 @@
   margin-bottom: 8px;
 }
 
-.category {
-  width: 100vw;
-  margin-left: calc(-50vw + 50%);
-  margin-bottom: 10px;
-  padding: 16px;
-}
-
 .container::-webkit-scrollbar {
   height: 8px;
 }
