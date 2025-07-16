@@ -23,11 +23,13 @@ const ProductComponent: React.FC<ProductComponentProps> = ({
         alt={title}
         className={styles.productImage}
       />
-      <h3 className={styles.productTitle}>{title}</h3>
-      <p className={styles.productPrice}>${price.toFixed(2)}</p>
-      <button className={styles.addToCartButton} onClick={onAddToCart}>
-        Add to Cart
-      </button>
+      <div>
+        <h3 className={styles.productTitle}>{title}</h3>
+        <p className={styles.productPrice}>${price.toFixed(2)}</p>
+        <button className={styles.addToCartButton} onClick={onAddToCart}>
+          Add to Cart
+        </button>
+      </div>
     </div>
   );
 };
