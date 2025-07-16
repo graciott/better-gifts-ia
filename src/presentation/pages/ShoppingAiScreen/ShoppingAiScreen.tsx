@@ -85,9 +85,9 @@ const ShoppingAiScreen = () => {
 
   return (
     <div className={styles.mainWrapper}>
-      <div className={styles.chatSection}>
-        <ChatScreen />
-      </div>
+      {/* <div className={styles.chatSection}> */}
+      <ChatScreen />
+      {/* </div> */}
       <div className={styles.container}>
         <h1>Shopping AI Screen</h1>
         {categories.map((category) => (
