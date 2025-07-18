@@ -1,0 +1,45 @@
+.drawer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 320px;
+  background: none;
+  box-shadow: 2px 0 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s;
+  z-index: 1000;
+}
+
+.open {
+  transform: translateX(0);
+}
+
+.closed {
+  transform: translateX(-100%);
+}
+
+.closeBtn {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: transparent;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.openTag {
+  position: fixed;
+  top: 112px;
+  left: 0px;
+  width: 68px;
+  background: #1976d2;
+  color: #fff;
+  border-radius: 0 16px 16px 0;
+  border: none;
+  padding: 8px 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  z-index: 1001;
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+}

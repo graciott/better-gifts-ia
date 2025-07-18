@@ -57,11 +57,11 @@ export default function ChatScreen() {
 
   return (
     <div className={styles.chatContainer}>
-      <h2>Chat com Gemini</h2>
+      <h2>Chat com IA</h2>
       <div className={styles.chatBox}>
         {messages.map((msg, idx) => (
           <div key={idx} className={`${styles.message} ${styles[msg.role]}`}>
-            <b>{msg.role === "user" ? "Você" : "Gemini"}:</b>
+            <b>{msg.role === "user" ? "Você" : "IA"}:</b>
             <Markdown>{msg.content}</Markdown>
           </div>
         ))}
