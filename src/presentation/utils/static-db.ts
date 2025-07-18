@@ -220,3 +220,14 @@ export const FitnessAndSportsProducts = [
     gender: ["female", "male"],
   },
 ];
+
+export const AllProducts = [
+  ...TechAndGadgetsProducts,
+  ...FitnessAndSportsProducts,
+];
+export const categoriesAndProducts = Categories.map((category) => ({
+  ...category,
+  products: AllProducts.filter((product) =>
+    product.categories.includes(category.title)
+  ),
+}));

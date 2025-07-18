@@ -1,14 +1,15 @@
 .productCard {
+  position: relative;
   width: 200px;
   min-width: 200px;
-  height: auto;
+  height: 350px;
   background: #fff;
   border-radius: 16px;
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
   display: flex;
   flex-direction: column;
   align-items: left;
-  padding: 20px 6px 6px 20px;
+  padding: 20px 6px 20px 20px;
   margin: 5px;
   transition: box-shadow 0.2s;
 }
@@ -33,6 +34,12 @@
   font-weight: 400;
   color: #222;
   text-align: left;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .productPrice {
@@ -42,9 +49,16 @@
 }
 
 .addToCartButton {
-  margin-top: auto;
+  position: absolute;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  left: 16px;
+  right: 16px;
+  bottom: 16px;
+  margin: 0;
   padding: 10px 0;
-  width: 100%;
+  width: auto;
   background: linear-gradient(90deg, #4f8cff 0%, #2355d6 100%);
   color: #fff;
   border: none;
@@ -53,8 +67,16 @@
   font-size: 1rem;
   cursor: pointer;
   transition: background 0.2s;
+  gap: 8px;
 }
 
 .addToCartButton:hover {
   background: linear-gradient(90deg, #2355d6 0%, #4f8cff 100%);
+}
+
+.storeImage {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  margin-left: 0px;
 }

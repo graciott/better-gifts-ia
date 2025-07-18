@@ -1,33 +1,72 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./ProductComponent.module.css";
 
 interface ProductComponentProps {
-  title: string;
-  image: string;
-  price: number;
-  onAddToCart: () => void;
+  url: string;
 }
 
-const ProductComponent: React.FC<ProductComponentProps> = ({
-  title,
-  image,
-  price,
-  onAddToCart,
-}) => {
+interface Metadata {
+  title?: string;
+  image?: { url?: string };
+  price?: string;
+  logo?: { url?: string };
+}
+
+const ProductComponent: React.FC<ProductComponentProps> = ({ url }) => {
+  const [metadata, setMetadata] = useState<Metadata | null>(null);
+  const [loading, setLoading] = useState(true);
+
+  const { title, image, price, logo: store } = metadata || {};
+  const { url: storeImage } = store || {};
+
+  useEffect(() => {
+    const fetchMetadata = async () => {
+      try {
+        const response = await fetch(
+          `https://api.microlink.io/?url=${encodeURIComponent(url)}`
+        );
+        const data = await response.json();
+
+        if (data.status === "success") {
+          setMetadata(data.data);
+        } else {
+          console.warn("Falha ao obter metadados");
+        }
+      } catch (err) {
+        console.error("Erro na API Microlink:", err);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchMetadata();
+  }, [url]);
+
+  const onBuyProduct = () => {
+    window.open(url, "_blank");
+  };
+
+  if (loading) return <p>Carregando...</p>;
+  if (!metadata) return <p>Não foi possível obter os dados.</p>;
+
+  console.log("Product metadata:", metadata);
   return (
     <div className={styles.productCard}>
       <img
-        src={
-          "https://yt3.ggpht.com/ytc/AIdro_l2dYLob_k5biaqXR_dOPX6yOtT1PPOo4l4fw5-NaPe-A=s88-c-k-c0x00ffffff-no-rj"
-        }
-        alt={title}
+        src={image?.url || "/placeholder.png"}
+        alt={title || "Product Image"}
         className={styles.productImage}
       />
       <div>
         <h3 className={styles.productTitle}>{title}</h3>
-        <p className={styles.productPrice}>${price.toFixed(2)}</p>
-        <button className={styles.addToCartButton} onClick={onAddToCart}>
-          Add to Cart
+        <p className={styles.productPrice}>{price}</p>
+        <button className={styles.addToCartButton} onClick={onBuyProduct}>
+          Comprar
+          <img
+            src={storeImage || "/placeholder.png"}
+            alt={title || "Product Image"}
+            className={styles.storeImage}
+          />
         </button>
       </div>
     </div>

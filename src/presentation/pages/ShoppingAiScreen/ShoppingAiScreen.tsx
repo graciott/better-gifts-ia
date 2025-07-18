@@ -1,98 +1,22 @@
 import ProductsSlider from "../../components/ProductsSlider/ProductsSlider";
+import { categoriesAndProducts } from "../../utils/static-db";
 import ChatScreen from "../Chat/ChatScreen";
 import styles from "./ShoppingAiScreen.module.css";
 
 const ShoppingAiScreen = () => {
-  const categories = [
-    {
-      title: "Electronics",
-      products: [
-        { id: 1, title: "primeiro", image: "smartphone.jpg", price: 699 },
-        { id: 1, title: "segundo", image: "smartphone.jpg", price: 699 },
-        { id: 1, title: "terceiro", image: "smartphone.jpg", price: 699 },
-        { id: 1, title: "Smartphone", image: "smartphone.jpg", price: 699 },
-        { id: 1, title: "Smartphone", image: "smartphone.jpg", price: 699 },
-        { id: 1, title: "Smartphone", image: "smartphone.jpg", price: 699 },
-        { id: 2, title: "Laptop", image: "laptop.jpg", price: 999 },
-        { id: 2, title: "Laptop", image: "laptop.jpg", price: 999 },
-        { id: 2, title: "Laptop", image: "laptop.jpg", price: 999 },
-        { id: 2, title: "Laptop", image: "laptop.jpg", price: 999 },
-        { id: 2, title: "Laptop", image: "laptop.jpg", price: 999 },
-        { id: 2, title: "Laptop", image: "laptop.jpg", price: 999 },
-        { id: 2, title: "Laptop", image: "laptop.jpg", price: 999 },
-      ],
-    },
-    {
-      title: "Viagens e Turismo",
-      products: [
-        { id: 1, title: "primeiro", image: "smartphone.jpg", price: 699 },
-        { id: 1, title: "segundo", image: "smartphone.jpg", price: 699 },
-        { id: 1, title: "terceiro", image: "smartphone.jpg", price: 699 },
-        { id: 1, title: "Smartphone", image: "smartphone.jpg", price: 699 },
-        { id: 1, title: "Smartphone", image: "smartphone.jpg", price: 699 },
-        { id: 1, title: "Smartphone", image: "smartphone.jpg", price: 699 },
-        { id: 2, title: "Laptop", image: "laptop.jpg", price: 999 },
-        { id: 2, title: "Laptop", image: "laptop.jpg", price: 999 },
-        { id: 2, title: "Laptop", image: "laptop.jpg", price: 999 },
-        { id: 2, title: "Laptop", image: "laptop.jpg", price: 999 },
-        { id: 2, title: "Laptop", image: "laptop.jpg", price: 999 },
-        { id: 2, title: "Laptop", image: "laptop.jpg", price: 999 },
-        { id: 2, title: "Laptop", image: "laptop.jpg", price: 999 },
-      ],
-    },
-    {
-      title: "Home Appliances",
-      products: [
-        {
-          id: 3,
-          title: "Refrigerator",
-          image: "refrigerator.jpg",
-          price: 1200,
-        },
-        {
-          id: 3,
-          title: "Refrigerator",
-          image: "refrigerator.jpg",
-          price: 1200,
-        },
-        {
-          id: 3,
-          title: "Refrigerator",
-          image: "refrigerator.jpg",
-          price: 1200,
-        },
-        {
-          id: 3,
-          title: "Refrigerator",
-          image: "refrigerator.jpg",
-          price: 1200,
-        },
-        {
-          id: 3,
-          title: "Refrigerator",
-          image: "refrigerator.jpg",
-          price: 1200,
-        },
-        {
-          id: 4,
-          title: "Washing Machine",
-          image: "washing_machine.jpg",
-          price: 800,
-        },
-      ],
-    },
-  ];
-
   return (
     <div className={styles.mainWrapper}>
-      {/* <div className={styles.chatSection}> */}
-      <ChatScreen />
-      {/* </div> */}
+      <div className={styles.chatSection}>
+        <ChatScreen />
+      </div>
       <div className={styles.container}>
         <h1>Shopping AI Screen</h1>
-        {categories.map((category) => (
+        {categoriesAndProducts.map((category) => (
           <div className={styles.category} key={category.title}>
-            <ProductsSlider category={category} />
+            <ProductsSlider
+              category={category.title}
+              products={category.products}
+            />
           </div>
         ))}
       </div>
